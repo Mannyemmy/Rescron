@@ -34,9 +34,7 @@
             "Database\\Seeders\\": "database/seeders/",
             "Modules\\": "Modules/"
         },
-        "files": [
-            "vendor/spotier/src/neo.php"
-        ]
+        "files": []
     },
     "autoload-dev": {
         "psr-4": {
