@@ -23,13 +23,16 @@ class GlobalVariablesServiceProvider extends ServiceProvider
     public function boot()
     {
         if (!file_exists(public_path('install.php'))) {
-            $site = Cache::rememberForever('site', function () {
-                return Setting::all()->keyBy('key');
-            });
+            try {
+                $site = Cache::rememberForever('site', function () {
+                    return Setting::all()->keyBy('key');
+                });
 
-            app()->instance('site', $site);
-            //dd($site);
-            View::share('site', $site);
+                app()->instance('site', $site);
+                View::share('site', $site);
+            } catch (\Exception $e) {
+                // DB not ready yet (e.g. during migrations)
+            }
         }
     }
 }
