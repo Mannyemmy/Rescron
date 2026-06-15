@@ -764,7 +764,7 @@ if (!function_exists('getTemplates')) {
     function getTemplates()
     {
         $path = resource_path('views/templates');
-        $templates = array_map('basename', File::directories($path));
+        $templates = File::isDirectory($path) ? array_map('basename', File::directories($path)) : [];
         array_push($templates, 'default');
         $templates = array_diff($templates, ['neo']);
 
