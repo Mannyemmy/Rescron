@@ -35,21 +35,7 @@ class CommonMiddleware
         }
 
 
-        $license_check = Cache::remember('license_check', 60 * 60 * 12, function () {
-            $url = endpoint('verify-license');
-
-            // Get the current HTTP_HOST from the request
-            $httpHost = domain();
-
-            $response = Http::withHeaders([
-                'X-DOMAIN' => $httpHost, // Set X-DOMAIN header with the current HTTP_HOST value
-                'X-CACHE-URL' => route('cache-clear'),
-                'X-VERSION' => env('APP_VERSION')
-            ])->get($url);
-
-            // Cache the response body (JSON data) instead of the entire response object
-            return $response->body();
-        });
+        $license_check = null;
 
         // Decode the cached response data (JSON)
         $responseData = json_decode($license_check);
