@@ -748,12 +748,11 @@ if (!function_exists('allJobsRunning')) {
 if (!function_exists('template')) {
     function template($path_to_blade_file)
     {
-        // default exception would be thrown for missing theme
-        if (site('template') == 'default') {
+        $tpl = site('template') ?? 'default';
+        if ($tpl == 'default') {
             return $path_to_blade_file;
         } else {
-
-            return ('templates.' . site('template') . '.' . $path_to_blade_file);
+            return ('templates.' . $tpl . '.' . $path_to_blade_file);
         }
     }
 }
