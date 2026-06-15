@@ -1,4 +1,4 @@
-@php
+﻿@php
     use App\Models\Bot;
     
     $page_title = 'AI Bot Pricing';
@@ -104,7 +104,7 @@
                                         <span>Monday</span>
                                     </p>
                                     <p class="">
-                                        @if (in_array('monday', json_decode(site('trading_days'))))
+                                        @if (in_array('monday', json_decode(site('trading_days')) ?? []))
                                             <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor"
                                                 class="w-4 h-4 text-green-500" viewBox="0 0 16 16">
                                                 <path
@@ -127,7 +127,7 @@
                                         <span>Tuesday</span>
                                     </p>
                                     <p class="">
-                                        @if (in_array('tuesday', json_decode(site('trading_days'))))
+                                        @if (in_array('tuesday', json_decode(site('trading_days')) ?? []))
                                             <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor"
                                                 class="w-4 h-4 text-green-500" viewBox="0 0 16 16">
                                                 <path
@@ -151,7 +151,7 @@
                                         <span>Wednesday</span>
                                     </p>
                                     <p class="">
-                                        @if (in_array('wednesday', json_decode(site('trading_days'))))
+                                        @if (in_array('wednesday', json_decode(site('trading_days')) ?? []))
                                             <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor"
                                                 class="w-4 h-4 text-green-500" viewBox="0 0 16 16">
                                                 <path
@@ -175,7 +175,7 @@
                                         <span>Thursday</span>
                                     </p>
                                     <p class="">
-                                        @if (in_array('thursday', json_decode(site('trading_days'))))
+                                        @if (in_array('thursday', json_decode(site('trading_days')) ?? []))
                                             <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor"
                                                 class="w-4 h-4 text-green-500" viewBox="0 0 16 16">
                                                 <path
@@ -198,7 +198,7 @@
                                         <span>Friday</span>
                                     </p>
                                     <p class="">
-                                        @if (in_array('friday', json_decode(site('trading_days'))))
+                                        @if (in_array('friday', json_decode(site('trading_days')) ?? []))
                                             <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor"
                                                 class="w-4 h-4 text-green-500" viewBox="0 0 16 16">
                                                 <path
@@ -221,7 +221,7 @@
                                         <span>Saturday</span>
                                     </p>
                                     <p class="">
-                                        @if (in_array('saturday', json_decode(site('trading_days'))))
+                                        @if (in_array('saturday', json_decode(site('trading_days')) ?? []))
                                             <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor"
                                                 class="w-4 h-4 text-green-500" viewBox="0 0 16 16">
                                                 <path
@@ -244,7 +244,7 @@
                                         <span>Sunday</span>
                                     </p>
                                     <p class="">
-                                        @if (in_array('sunday', json_decode(site('trading_days'))))
+                                        @if (in_array('sunday', json_decode(site('trading_days')) ?? []))
                                             <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor"
                                                 class="w-4 h-4 text-green-500" viewBox="0 0 16 16">
                                                 <path
@@ -280,3 +280,4 @@
 
 @section('scripts')
 @endsection
+

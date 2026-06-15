@@ -140,12 +140,12 @@ if (!function_exists('site')) {
     function site($key)
     {
         $site = app('site');
+        if (!$site) return null;
         if ($key == 'template') {
-            $template = session()->get('template', $site->get($key)->value);
-            // dd($template);
+            $template = session()->get('template', $site->get($key)?->value);
             return $template;
         }
-        return $site->get($key)->value ?? null;
+        return $site->get($key)?->value ?? null;
     }
 }
 
@@ -565,7 +565,7 @@ if (!function_exists('formatAmount')) {
 if (!function_exists('is_required')) {
     function is_required($field, $star = true)
     {
-        $required = json_decode(site('user_fields'));
+        $required = json_decode(site('user_fields')) ?? [];
         if (in_array($field, $required)) {
             if ($star) {
                 return '<span class="text-red-500"> *</span>';
